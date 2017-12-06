@@ -80,43 +80,43 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getByCreatedTimestampAfter(Date createdTimestamp) {
-        return userRepository.findByCreatedTimestampAfter(createdTimestamp);
+    public List<User> getByCreatedDateAfter(Date createdDate) {
+        return userRepository.findByCreatedDateAfter(createdDate);
     }
 
     @Override
-    public List<User> getByCreatedTimestampGreaterThan(Date createdTimestamp) {
-        return userRepository.findByCreatedTimestampGreaterThan(createdTimestamp);
+    public List<User> getByCreatedDateGreaterThan(Date createdDate) {
+        return userRepository.findByCreatedDateGreaterThan(createdDate);
     }
 
     @Override
-    public List<User> getByCreatedTimestampBefore(Date createdTimestamp) {
-        return userRepository.findByCreatedTimestampBefore(createdTimestamp);
+    public List<User> getByCreatedDateBefore(Date createdDate) {
+        return userRepository.findByCreatedDateBefore(createdDate);
     }
 
     @Override
-    public List<User> getByCreatedTimestampLessThan(Date createdTimestamp) {
+    public List<User> getByCreatedDateLessThan(Date createdDate) {
         return null;
     }
 
     @Override
-    public List<User> getByCreatedTimestampGreaterThanEqual(Date createdTimestamp) {
-        return userRepository.findByCreatedTimestampGreaterThanEqual(createdTimestamp);
+    public List<User> getByCreatedDateGreaterThanEqual(Date createdDate) {
+        return userRepository.findByCreatedDateGreaterThanEqual(createdDate);
     }
 
     @Override
-    public List<User> getByCreatedTimestampLessThanEqual(Date createdTimestamp) {
-        return userRepository.findByCreatedTimestampLessThanEqual(createdTimestamp);
+    public List<User> getByCreatedDateLessThanEqual(Date createdDate) {
+        return userRepository.findByCreatedDateLessThanEqual(createdDate);
     }
 
     @Override
-    public List<User> getByCreatedTimestamp(Date createdTimestamp) {
-        return userRepository.findByCreatedTimestamp(createdTimestamp);
+    public List<User> getByCreatedDate(Date createdDate) {
+        return userRepository.findByCreatedDate(createdDate);
     }
 
     @Override
-    public List<User> getByCreatedTimestampBetween(Date beforeCreatedTimestamp, Date afterCreatedTimestamp) {
-        return userRepository.findByCreatedTimestampBetween(beforeCreatedTimestamp, afterCreatedTimestamp);
+    public List<User> getByCreatedDateBetween(Date beforeCreatedDate, Date afterCreatedDate) {
+        return userRepository.findByCreatedDateBetween(beforeCreatedDate, afterCreatedDate);
     }
 
     @Override
@@ -150,17 +150,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getAllOrderByCreatedTimestampDesc() {
+    public List<User> getAllOrderByCreatedDateDesc() {
         return null;
     }
 
     @Override
-    public List<User> getAllOrderByModifiedTimestamp() {
+    public List<User> getAllOrderByModifiedDate() {
         return null;
     }
 
     @Override
-    public List<User> getAllOrderByModifiedTimestampDesc() {
+    public List<User> getAllOrderByModifiedDateDesc() {
         return null;
     }
 

@@ -1,15 +1,13 @@
 package za.api.core.model.auditing;
 
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
-import za.api.core.model.user.User;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
@@ -17,25 +15,21 @@ import java.util.Date;
  * Created by Azael on 2017/11/30.
  */
 @MappedSuperclass
-public class Auditor {
+@EntityListeners(AuditingEntityListener.class)
+public abstract class Auditor<U> {
 
     @LastModifiedBy
-    @ManyToOne
-    @JoinColumn
-    private User modifiedBy;
+    private U modifiedBy;
 
     @CreatedBy
-    @ManyToOne
-    @JoinColumn(updatable = false)
-    private User createdBy;
+    @Column(updatable = false)
+    private U createdBy;
 
-    @UpdateTimestamp
-    @ColumnDefault(value = "CURRENT_TIMESTAMP")
-    @Column(nullable = false)
-    private Date modifiedTimestamp;
+    @LastModifiedDate
+    private Date modifiedDate;
 
-    @CreationTimestamp
-    @ColumnDefault(value = "CURRENT_TIMESTAMP")
-    @Column(nullable = false, updatable = false)
-    private Date createdTimestamp;
+    @CreatedDate
+    @Column(updatable = false)
+    private Date createdDate;
+
 }

@@ -13,7 +13,7 @@ import java.util.Set;
  */
 @Entity
 @Table(catalog = "core")
-public class User extends Auditor {
+public class User extends Auditor<String> {
     @Id
     @GeneratedValue
     private Integer id;

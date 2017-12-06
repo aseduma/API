@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(catalog = "core")
-public class Role extends Auditor {
+public class Role extends Auditor<String> {
 
     @Id
     @GeneratedValue

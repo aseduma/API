@@ -36,17 +36,17 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByUsernameContaining(String username);
 
     //Date
-    List<User> findByCreatedTimestampAfter(Date createdTimestamp);
-    List<User> findByCreatedTimestampGreaterThan(Date createdTimestamp);
+    List<User> findByCreatedDateAfter(Date createdDate);
+    List<User> findByCreatedDateGreaterThan(Date createdDate);
 
-    List<User> findByCreatedTimestampBefore(Date createdTimestamp);
-    List<User> findByCreatedTimestampLessThan(Date createdTimestamp);
+    List<User> findByCreatedDateBefore(Date createdDate);
+    List<User> findByCreatedDateLessThan(Date createdDate);
 
-    List<User> findByCreatedTimestampGreaterThanEqual(Date createdTimestamp);
-    List<User> findByCreatedTimestampLessThanEqual(Date createdTimestamp);
-    List<User> findByCreatedTimestamp(Date createdTimestamp);
+    List<User> findByCreatedDateGreaterThanEqual(Date createdDate);
+    List<User> findByCreatedDateLessThanEqual(Date createdDate);
+    List<User> findByCreatedDate(Date createdDate);
 
-    List<User> findByCreatedTimestampBetween(Date beforeCreatedTimestamp, Date afterCreatedTimestamp);
+    List<User> findByCreatedDateBetween(Date beforeCreatedDate, Date afterCreatedDate);
 
 
     //<>
@@ -61,9 +61,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByRolesNotIn(Collection<Role> roles);
 
    /* //Order By
-    List<User> findAllOrderByCreatedTimestampDesc();
-    List<User> findAllOrderByModifiedTimestamp();
-    List<User> findAllOrderByModifiedTimestampDesc();*/
+    List<User> findAllOrderByCreatedDateDesc();
+    List<User> findAllOrderByModifiedDate();
+    List<User> findAllOrderByModifiedDateDesc();*/
 
     //Is Null
     List<User> findByCreatedByIsNull();

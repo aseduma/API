@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(catalog = "core")
-public class Profile extends Auditor{
+public class Profile extends Auditor<String>{
 
     @Id
     @GeneratedValue

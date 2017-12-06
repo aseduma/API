@@ -32,4 +32,12 @@ public class RoleServiceTest extends ApplicationTest{
         roleService.save(role);
     }
 
+    @Test
+    public void updateUserRole(){
+        loginService.autoLogin("core", "core");
+        Role role = roleService.getByName("ROLE_USER");
+        role.setDescription("Users");
+        roleService.update(role);
+    }
+
 }

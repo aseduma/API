@@ -8,14 +8,13 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import za.api.core.model.user.User;
-import za.api.core.service.auditing.AuditorAwareServiceImpl;
+import za.api.core.service.auditing.AuditorAwareImpl;
 
 /**
  * Created by Azael on 2017/08/28.
  */
 @Configuration
-@EnableJpaAuditing
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
 public class JpaConfiguration {
     @Autowired
     private Environment environment;
@@ -34,7 +33,7 @@ public class JpaConfiguration {
     }
 
     @Bean
-    public AuditorAware<User> auditorProvider() {
-        return new AuditorAwareServiceImpl();
+    public AuditorAware<String> auditorAware() {
+        return new AuditorAwareImpl();
     }
 }

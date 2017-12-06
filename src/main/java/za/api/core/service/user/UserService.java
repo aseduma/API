@@ -32,17 +32,17 @@ public interface UserService {
     List<User> getByUsernameContaining(String username);
 
     //Date
-    List<User> getByCreatedTimestampAfter(Date createdTimestamp);
-    List<User> getByCreatedTimestampGreaterThan(Date createdTimestamp);
+    List<User> getByCreatedDateAfter(Date createdDate);
+    List<User> getByCreatedDateGreaterThan(Date createdDate);
 
-    List<User> getByCreatedTimestampBefore(Date createdTimestamp);
-    List<User> getByCreatedTimestampLessThan(Date createdTimestamp);
+    List<User> getByCreatedDateBefore(Date createdDate);
+    List<User> getByCreatedDateLessThan(Date createdDate);
 
-    List<User> getByCreatedTimestampGreaterThanEqual(Date createdTimestamp);
-    List<User> getByCreatedTimestampLessThanEqual(Date createdTimestamp);
-    List<User> getByCreatedTimestamp(Date createdTimestamp);
+    List<User> getByCreatedDateGreaterThanEqual(Date createdDate);
+    List<User> getByCreatedDateLessThanEqual(Date createdDate);
+    List<User> getByCreatedDate(Date createdDate);
 
-    List<User> getByCreatedTimestampBetween(Date beforeCreatedTimestamp, Date afterCreatedTimestamp);
+    List<User> getByCreatedDateBetween(Date beforeCreatedDate, Date afterCreatedDate);
 
 
     List<User> getAll();
@@ -58,9 +58,9 @@ public interface UserService {
     List<User> getByRolesNotIn(Collection<Role> roles);
 
     //Order By
-    List<User> getAllOrderByCreatedTimestampDesc();
-    List<User> getAllOrderByModifiedTimestamp();
-    List<User> getAllOrderByModifiedTimestampDesc();
+    List<User> getAllOrderByCreatedDateDesc();
+    List<User> getAllOrderByModifiedDate();
+    List<User> getAllOrderByModifiedDateDesc();
 
     //Is Null
     List<User> getByCreatedByIsNull();

@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(catalog = "core")
-public class HandlerMapping {
+public class HandlerMapping extends Auditor<String>{
     @Id
     @GeneratedValue
     private Integer id;

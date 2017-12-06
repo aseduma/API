@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(catalog = "core")
-public class Log extends Auditor{
+public class Log extends Auditor<String>{
     @Id
     @GeneratedValue
     private Integer id;
