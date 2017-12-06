@@ -12,8 +12,11 @@ public class RoleServiceTest extends ApplicationTest{
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private LoginService loginService;
+
     @Test
-    public void saveAdmin(){
+    public void saveAdminRole(){
         Role role = new Role();
         role.setName("ADMIN");
         role.setDescription("Administrator");
@@ -22,11 +25,22 @@ public class RoleServiceTest extends ApplicationTest{
 
 
     @Test
-    public void saveUser(){
+    public void saveUserRole(){
         Role role = new Role();
         role.setName("USER");
         role.setDescription("User");
         roleService.save(role);
+    }
+
+    @Test
+    public void updateUserRole(){
+
+        loginService.autoLogin("core", "core");
+
+        Role role = roleService.getByName("USER");
+        role.setDescription("Users");
+        roleService.update(role);
+
     }
 
 }
