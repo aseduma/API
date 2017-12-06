@@ -2,10 +2,7 @@ package za.api.core.model.user;
 
 import za.api.core.model.auditing.Auditor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Azael on 2017/11/30.
@@ -15,11 +12,23 @@ import javax.persistence.Table;
 public class Role extends Auditor {
 
     @Id
-    @Column(length = 15)
+    @GeneratedValue
+    private Integer id;
+
+    @Column(length = 30, nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false, unique = true, length = 30)
     private String description;
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

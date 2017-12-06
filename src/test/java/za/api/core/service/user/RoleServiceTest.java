@@ -18,7 +18,7 @@ public class RoleServiceTest extends ApplicationTest{
     @Test
     public void saveAdminRole(){
         Role role = new Role();
-        role.setName("ADMIN");
+        role.setName("ROLE_ADMIN");
         role.setDescription("Administrator");
         roleService.save(role);
     }
@@ -27,20 +27,9 @@ public class RoleServiceTest extends ApplicationTest{
     @Test
     public void saveUserRole(){
         Role role = new Role();
-        role.setName("USER");
+        role.setName("ROLE_USER");
         role.setDescription("User");
         roleService.save(role);
-    }
-
-    @Test
-    public void updateUserRole(){
-
-        loginService.autoLogin("core", "core");
-
-        Role role = roleService.getByName("USER");
-        role.setDescription("Users");
-        roleService.update(role);
-
     }
 
 }

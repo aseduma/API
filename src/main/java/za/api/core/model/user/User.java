@@ -14,9 +14,12 @@ import java.util.Set;
 @Entity
 @Table(catalog = "core")
 public class User extends Auditor {
+    @Id
+    @GeneratedValue
+    private Integer id;
 
     @NotBlank
-    @Id
+    @Column(nullable = false, unique = true)
     private String username;
 
     @NotBlank
@@ -31,8 +34,6 @@ public class User extends Auditor {
 
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(nullable = false),
-            inverseJoinColumns = @JoinColumn(nullable = false))
     private Set<Role> roles;
 
 
@@ -40,6 +41,14 @@ public class User extends Auditor {
     @ColumnDefault("false")
     private Boolean active;
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

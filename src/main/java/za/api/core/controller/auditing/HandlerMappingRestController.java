@@ -18,7 +18,6 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/rest/structures")
-@Secured("ANONYMOUS")
 public class HandlerMappingRestController {
     private final RequestMappingHandlerMapping requestMappingHandlerMapping;
     private final HandlerMappingService handlerMappingService;
@@ -35,7 +34,7 @@ public class HandlerMappingRestController {
         return new ResponseEntity<>(requestMappingHandlerMapping.getHandlerMethods(), HttpStatus.OK);
     }
 
-    //@Secured(value = "ADMIN")
+    @Secured(value = "ROLE_ADMIN")
     @RequestMapping("/update")
     public ResponseEntity<?> updateStructures() {
         Map<RequestMappingInfo, HandlerMethod> map = requestMappingHandlerMapping.getHandlerMethods();
