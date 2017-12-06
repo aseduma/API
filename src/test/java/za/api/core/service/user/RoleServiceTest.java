@@ -1,10 +1,9 @@
-package za.api.core;
+package za.api.core.service.user;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import za.api.ApplicationTest;
 import za.api.core.model.user.Role;
-import za.api.core.service.user.RoleService;
 
 /**
  * Created by Azael on 2017/12/05.

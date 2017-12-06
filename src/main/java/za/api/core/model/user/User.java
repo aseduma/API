@@ -6,7 +6,6 @@ import za.api.core.model.auditing.Auditor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 /**
@@ -21,7 +20,6 @@ public class User extends Auditor {
     private String username;
 
     @NotBlank
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*).{6,45}$")
     @Lob
     @Column(nullable = false)
     private String hashedPassword;
@@ -82,5 +80,16 @@ public class User extends Auditor {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", hashedPassword='" + hashedPassword + '\'' +
+                ", profile=" + profile +
+                ", roles=" + roles +
+                ", active=" + active +
+                '}';
     }
 }

@@ -40,7 +40,7 @@ public class Profile extends Auditor{
 
     @Size(min=10 , max=10)
     @Pattern(regexp="(^$|[0-9]{10})")
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 10, unique = true)
     private String cellNr;
 
 
@@ -98,5 +98,18 @@ public class Profile extends Auditor{
 
     public void setCellNr(String cellNr) {
         this.cellNr = cellNr;
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", identityNumber='" + identityNumber + '\'' +
+                ", passportNumber='" + passportNumber + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", cellNr='" + cellNr + '\'' +
+                '}';
     }
 }
