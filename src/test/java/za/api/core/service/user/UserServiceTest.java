@@ -71,11 +71,19 @@ public class UserServiceTest  extends ApplicationTest {
         user = userService.getByUsername("core");
         System.out.println(user.toString());
 
-        user = userService.getByUsername("tester");
-        System.out.println(user.toString());
-
         user = userService.getByProfileFirstNameAndProfileLastName("Azael", "Seduma");
         System.out.println(user.toString());
 
+
+    }
+
+    @Test
+    public void getNonExistingUser() {
+        try {
+            User user = userService.getByUsername("tester");
+            System.out.println(user.toString());
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 }
